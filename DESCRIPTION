@@ -2,14 +2,18 @@ Package: teachboostr
 Title: An R Package that Wraps TeachBoost's RESTful API
 Version: 0.0.0.9000
 Authors@R: person("Chris", "Haid", email = "chaid@kippchicago.org", role = c("aut", "cre"))
-Description: A simple R wrapper around TeachBoost's RESTful API. It can be used to download JSON data and
-    convert to it do a data frame for further analysis or loading into your database/data mart/data warehouse/data lake.
-Depends: R (>= 3.3.1)
+Description: A simple R wrapper around TeachBoost's RESTful API. It can be used
+    to download JSON data and convert to it do a data frame for further analysis or
+    loading into your database/data mart/data warehouse/data lake.
+Depends:
+    R (>= 3.3.1)
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-Imports: httr,
+Imports:
+    httr,
     jsonlite,
     dplyr,
     purrr,
     tibble
+RoxygenNote: 5.0.1

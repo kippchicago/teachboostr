@@ -14,7 +14,7 @@
 #' @export
 teachboost_api <- function(endpoint,
                           key,
-                          parsed = TRUE,
+                          parsed = FALSE,
                           ...){
 
 
