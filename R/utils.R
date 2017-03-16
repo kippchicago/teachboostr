@@ -63,6 +63,16 @@ unpack_tb <- function(x){
 }
 
 
+
+isNested <- function(l) {
+  if (!is.list(l)) return(FALSE)
+  for (i in l) {
+    if (is.list(i)) return(TRUE)
+    }
+  return(FALSE)
+  }
+
+
 get_total_records <- function(x) {
   x$content$total
 }
