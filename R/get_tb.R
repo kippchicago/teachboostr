@@ -14,10 +14,11 @@
 #' @export
 #'
 #' @examples
-#'
+#' \dontrun{
 #' x <- get_teachboost("users")
 #'
 #' x <- get_teachboost("forms", limit = 1200)
+#' }
 
 get_tb <- function(endpoint, key, ...){
 
