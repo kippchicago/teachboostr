@@ -11,6 +11,10 @@ knitr::opts_chunk$set(
   fig.path = "README-"
 )
 ```
+[![Travis-CI Build Status](https://travis-ci.org/kippchicago/teachboostr.svg?branch=master)](https://travis-ci.org/kippchicago/teachboostr)
+[![Coverage Status](https://img.shields.io/codecov/c/github/kippchicago/teachboostr/master.svg)](https://codecov.io/github/kippchicago/teachboostr?branch=master)
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/kippchicago/teachboostr?branch=master&svg=true)](https://ci.appveyor.com/project/kippchicago/teachboostr)
+
 `teachboostr` is a simple R package that provides bindings to the TeachBoost API.
 
 ### Getting Started
@@ -36,7 +40,6 @@ You can use the `unpack_tb()` function to extract the content from the `get_tb` 
 ```{r, eval=FALSE}
 users_df <- unpack_tb(users)
 ```
-
 
 Notice that nested JSON returned by the API will be stored as nested list-columns in the data frame.
 

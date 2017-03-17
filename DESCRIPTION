@@ -17,4 +17,5 @@ Imports:
     purrr,
     tibble
 RoxygenNote: 5.0.1
-Suggests: testthat
+Suggests: testthat,
+    covr
