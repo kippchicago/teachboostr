@@ -7,7 +7,7 @@
 unpack_tb(x)
 }
 \arguments{
-\item{x}{the TeachBoost response object (returned by \code{\link{get_tb()}} to be unpacked.}
+\item{x}{the TeachBoost response object (returned by \code{\link{get_tb}} to be unpacked.}
 }
 \value{
 a data frame

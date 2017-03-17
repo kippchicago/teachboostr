@@ -1,4 +1,4 @@
-#' Extracts content of a a collection of teachboost responses returned by \link{get_tb()}
+#' Extracts content of a a collection of teachboost responses returned by \link{get_tb}
 #'
 #' @param x the output (a list of response objects)
 #'
@@ -46,7 +46,7 @@ list_to_df <- function(.data) {
 #' structures as list-columns.
 #'
 #'
-#' @param x the TeachBoost response object (returned by \code{\link{get_tb()}} to be unpacked.
+#' @param x the TeachBoost response object (returned by \code{\link{get_tb}} to be unpacked.
 #'
 #' @return a data frame
 #' @export

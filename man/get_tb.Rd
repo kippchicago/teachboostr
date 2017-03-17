@@ -23,9 +23,10 @@ A wrapper around \code{\link{teachboost_api}}, which will return as many respons
 objects as needed (given any constraints passed on to \code{\link{teachboost_api}})
 }
 \examples{
-
+\dontrun{
 x <- get_teachboost("users")
 
 x <- get_teachboost("forms", limit = 1200)
+}
 }
 

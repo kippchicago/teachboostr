@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{extract_content}
 \alias{extract_content}
-\title{Extracts content of a a collection of teachboost responses returned by \link{get_tb()}}
+\title{Extracts content of a a collection of teachboost responses returned by \link{get_tb}}
 \usage{
 extract_content(x)
 }
@@ -13,6 +13,6 @@ extract_content(x)
 a list of the content portions from a collection of TeachBoost response objects
 }
 \description{
-Extracts content of a a collection of teachboost responses returned by \link{get_tb()}
+Extracts content of a a collection of teachboost responses returned by \link{get_tb}
 }
 
