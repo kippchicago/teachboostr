@@ -28,7 +28,7 @@ get_tb <- function(endpoint, key, ...){
     key <- Sys.getenv('TB_KEY')
   }
 
-  if(key == "") stop("You need to supply a TeachBoost API key.\nYou can save on in an .Renviron file as TB_KEY='your_key_here'.")
+  if(key == "") stop("You need to supply a TeachBoost API key./nYou can save on in an .Renviron file as TB_KEY='your_key_here'.")
 
   dots$key <- key
   dots$endpoint <- endpoint

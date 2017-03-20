@@ -3,6 +3,8 @@
 S3method(print,teachboost_api)
 export(get_tb)
 export(teachboost_api)
+export(unnest_list_cols)
+export(unnest_recursive)
 export(unpack_tb)
 importFrom(dplyr,"%>%")
 importFrom(utils,str)
