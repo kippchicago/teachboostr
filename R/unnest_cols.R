@@ -19,7 +19,7 @@ unnest_recursive <- function(x, id_col = "id") {
   #unnest id_col and second colum
   unnested <- x %>%
     dplyr::select_(id_col, 2) %>%
-    tidyr::unnest()
+    tidyr::unnest(.sep = "_")
 
  # join newly unnested to previoulsly unnested
   x_out <- dplyr::left_join(x_out, unnested, by = id_col)
@@ -59,8 +59,11 @@ unnest_list_cols <- function(.data, id_col = "id"){
 
   # seperate list-cols and add back id col
   list_cols <- .data %>%
-    dplyr::select_if(is.list) %>%
-    dplyr::bind_cols(non_list_cols %>% dplyr::select_(id_col), .)
+    dplyr::select_if(is.list)
+
+  list_cols <- dplyr::bind_cols(non_list_cols %>%
+                                  dplyr::select_(id_col),
+                                list_cols)
 
   # un-nest list columns
   unnested_list_cols <- list_cols %>%

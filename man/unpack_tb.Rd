@@ -4,10 +4,12 @@
 \alias{unpack_tb}
 \title{Unpack a TeachBoost response object (or a list of such objects) into a data frame}
 \usage{
-unpack_tb(x)
+unpack_tb(x, unnest_cols = TRUE)
 }
 \arguments{
 \item{x}{the TeachBoost response object (returned by \code{\link{get_tb}} to be unpacked.}
+
+\item{unnest_cols}{should nested list-columns be unnested, default is \code{TRUE}}
 }
 \value{
 a data frame

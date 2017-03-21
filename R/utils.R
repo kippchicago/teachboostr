@@ -8,27 +8,14 @@ extract_content <- function(x){
     purrr::map("content")
 }
 
-#' Parse the JSON content of a TeachBoost response into a a list
-#'
-#' @description Note that this function does very minimal simplificaton.
-#' For example, nested JSON is returned as nested lists (rather than a flattened list).
-#'
-#' @param content JSON string (from Teachboost response's content) to be parsed.
-#'
-#' @return a (possibly nested) list
-
-parse_content <- function(content) {
-  jsonlite::fromJSON(content, simplifyVector = FALSE)
-}
-
 
 #' Translate (possibly nested) Teachboost List into a dataframe
 #'
-#' @description This simply takes a list constructed from \code{\link{parse_content}} and create's a
+#' @description This simply takes a list constructed from \code{\link{extract_content}} and create's a
 #' data frame (of the \code{tibble} variety).  It will attempt to to keep simplify the data frame as much
 #' as possible, but not too much.  It tries to keep nested lists in a nested format.
 #'
-#' @param .data parsed list returned from \code{\link{parse_content}}
+#' @param .data a list returned from \code{\link{extract_content}}
 #'
 #' @return a single row data frame
 list_to_df <- function(.data) {
@@ -37,7 +24,10 @@ list_to_df <- function(.data) {
     purrr::map(~if(length(.x)>0) .x else NA) %>%
     purrr::map(~if(!is.na(.x) && .x != "") .x else NA) %>%
     purrr::map(~if(is.list(.x) && length(.x) > 1 && !isNested(.x)) list(as.integer(.x))  else .x) %>%
+    purrr::map(~if(is.list(.x) && length(.x) == 1 && is.integer(.x)) as.integer(.x)  else .x) %>%
     tibble::as_tibble()
+
+  out
 }
 
 #' Unpack a TeachBoost response object (or a list of such objects) into a data frame
@@ -47,6 +37,7 @@ list_to_df <- function(.data) {
 #'
 #'
 #' @param x the TeachBoost response object (returned by \code{\link{get_tb}} to be unpacked.
+#' @param unnest_cols should nested list-columns be unnested, default is \code{TRUE}
 #'
 #' @return a data frame
 #' @export
@@ -56,10 +47,24 @@ list_to_df <- function(.data) {
 #' x <- get_tb("users")
 #'
 #' x_df <- unpack_tb(x)
-unpack_tb <- function(x){
-  x %>% extract_content() %>%
-    purrr::map(parse_content) %>%
-    purrr::map_df(~.x$items %>% purrr::map_df(list_to_df))
+unpack_tb <- function(x, unnest_cols = TRUE){
+  content <- x %>% extract_content()
+
+  if (attr(x, "endpoint") == "forms") {
+    out <- content %>%
+      purrr::map(~jsonlite::fromJSON(.x, simplifyVector = FALSE)) %>%
+      purrr::map_df(~.x$items %>% purrr::map_df(list_to_df))
+
+      if (unnest_cols) out <- out %>% unnest_list_cols()
+
+  } else {
+    out <- content %>%
+      purrr::map(~jsonlite::fromJSON(.x, flatten = TRUE)) %>%
+      purrr::map_df("items")
+  }
+
+  out
+
 }
 
 

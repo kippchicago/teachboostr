@@ -117,7 +117,10 @@ get_tb <- function(endpoint, key, ...){
     out <- list()
     out[[1]] <- resp
   }
-  out
 
+  attr(out, "endpoint") <- endpoint
+
+  #return
+  out
 }
 

@@ -15,6 +15,11 @@ knitr::opts_chunk$set(
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/kippchicago/teachboostr?branch=master&svg=true)](https://ci.appveyor.com/project/kippchicago/teachboostr)
 [![Coverage Status](https://img.shields.io/codecov/c/github/kippchicago/teachboostr/master.svg)](https://codecov.io/github/kippchicago/teachboostr?branch=master)
 
+
+[![KIPP Chicagoo Logo](http://static1.squarespace.com/static/550ad117e4b0c3f5e0bd447e/5519bc78e4b02884e1035c91/553d2879e4b0fd1d73f54cb7/1475107551348/KIPP+-+Option+2.jpg?format=1000w)](http://www.kippchicago.org)
+
+[![TeachBoost Logo](http://www.saimgs.com/imglib/products/logos-hd/logo_6390_hd.png?v=0b17fa1cf279780b19ac4370d93aca2d)](http://www.teachboost.com)
+
 `teachboostr` is a simple R package that provides bindings to the TeachBoost API.
 
 ### Getting Started

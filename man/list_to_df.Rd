@@ -7,13 +7,13 @@
 list_to_df(.data)
 }
 \arguments{
-\item{.data}{parsed list returned from \code{\link{parse_content}}}
+\item{.data}{a list returned from \code{\link{extract_content}}}
 }
 \value{
 a single row data frame
 }
 \description{
-This simply takes a list constructed from \code{\link{parse_content}} and create's a
+This simply takes a list constructed from \code{\link{extract_content}} and create's a
 data frame (of the \code{tibble} variety).  It will attempt to to keep simplify the data frame as much
 as possible, but not too much.  It tries to keep nested lists in a nested format.
 }
