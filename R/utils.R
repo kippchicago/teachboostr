@@ -43,10 +43,11 @@ list_to_df <- function(.data) {
 #' @export
 #'
 #' @examples
-#'
+#' \dontrun{
 #' x <- get_tb("users")
 #'
 #' x_df <- unpack_tb(x)
+#' }
 unpack_tb <- function(x, unnest_cols = TRUE){
   content <- x %>% extract_content()
 

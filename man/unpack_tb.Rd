@@ -19,9 +19,10 @@ Tries to create a relatively tidy data frame, though it will maintain nested
 structures as list-columns.
 }
 \examples{
-
+\dontrun{
 x <- get_tb("users")
 
 x_df <- unpack_tb(x)
+}
 }
 
